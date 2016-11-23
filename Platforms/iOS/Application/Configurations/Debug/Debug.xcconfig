@@ -1,0 +1,10 @@
+//
+//  Debug.xcconfig
+//  HSound
+//
+//  Created by Nguyen Thanh Hai on 11/23/16.
+//
+//
+
+PRODUCT_BUNDLE_IDENTIFIER = com.nguyenthanhhai.hsounddev
+DEBUG_ACTIVITY_MODE = disable
