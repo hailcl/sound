@@ -1,0 +1,4 @@
+github "realm/realm-cocoa"
+github "ReactiveX/RxSwift" ~> 3.0
+github "CocoaLumberjack/CocoaLumberjack"
+github "audiokit/AudioKit"
