@@ -16,6 +16,26 @@
 		B540DF761DE5EF75000E682E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B540DF741DE5EF75000E682E /* Main.storyboard */; };
 		B540DF791DE5F000000E682E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B540DF771DE5F000000E682E /* AppDelegate.swift */; };
 		B540DF7C1DE5F1A7000E682E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B540DF7B1DE5F1A7000E682E /* Assets.xcassets */; };
+		C24F27EA11149C628E87CA7E /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F22CDAD35F531F7AB4094 /* Song.swift */; };
+		C24F27ED268478C4DA2D2BB4 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F261D70FC81D14D734AF7 /* Playlist.swift */; };
+		C24F2E281749BCBCE7F448E1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F24A2AEC8BA8642CEC89D /* RealmModel.swift */; };
+		C2986B721DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B611DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM */; };
+		C2986B731DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B621DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM */; };
+		C2986B741DE6C6F800E08046 /* RxBlocking.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B631DE6C6F800E08046 /* RxBlocking.framework.dSYM */; };
+		C2986B751DE6C6F800E08046 /* RxCocoa.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B641DE6C6F800E08046 /* RxCocoa.framework.dSYM */; };
+		C2986B761DE6C6F800E08046 /* RxSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B651DE6C6F800E08046 /* RxSwift.framework.dSYM */; };
+		C2986B771DE6C6F800E08046 /* RxTest.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B661DE6C6F800E08046 /* RxTest.framework.dSYM */; };
+		C2986B7E1DE6C6F800E08046 /* Realm.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B6D1DE6C6F800E08046 /* Realm.framework.dSYM */; };
+		C2986B7F1DE6C6F800E08046 /* RealmSwift.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2986B6E1DE6C6F800E08046 /* RealmSwift.framework.dSYM */; };
+		C2986B8D1DE6C74300E08046 /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B671DE6C6F800E08046 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B8F1DE6C74300E08046 /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B681DE6C6F800E08046 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B911DE6C74300E08046 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B691DE6C6F800E08046 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B931DE6C74300E08046 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B6A1DE6C6F800E08046 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B951DE6C74300E08046 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B6B1DE6C6F800E08046 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B971DE6C74300E08046 /* RxTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B6C1DE6C6F800E08046 /* RxTest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B991DE6C74300E08046 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B6F1DE6C6F800E08046 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B9B1DE6C74300E08046 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B701DE6C6F800E08046 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2986B9D1DE6C74300E08046 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B711DE6C6F800E08046 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +47,28 @@
 			remoteInfo = iOS;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2986B9E1DE6C74300E08046 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2986B9D1DE6C74300E08046 /* AudioKit.framework in Embed Frameworks */,
+				C2986B951DE6C74300E08046 /* RxSwift.framework in Embed Frameworks */,
+				C2986B931DE6C74300E08046 /* RxCocoa.framework in Embed Frameworks */,
+				C2986B971DE6C74300E08046 /* RxTest.framework in Embed Frameworks */,
+				C2986B8F1DE6C74300E08046 /* CocoaLumberjackSwift.framework in Embed Frameworks */,
+				C2986B991DE6C74300E08046 /* Realm.framework in Embed Frameworks */,
+				C2986B8D1DE6C74300E08046 /* CocoaLumberjack.framework in Embed Frameworks */,
+				C2986B9B1DE6C74300E08046 /* RealmSwift.framework in Embed Frameworks */,
+				C2986B911DE6C74300E08046 /* RxBlocking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		12D78452B6439AF26C4B8714 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +85,26 @@
 		B540DF7B1DE5F1A7000E682E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B540DF7D1DE5F224000E682E /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		B540DF7E1DE5F243000E682E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		C24F22CDAD35F531F7AB4094 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		C24F24A2AEC8BA8642CEC89D /* RealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		C24F261D70FC81D14D734AF7 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		C2986B611DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaLumberjack.framework.dSYM; sourceTree = "<group>"; };
+		C2986B621DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaLumberjackSwift.framework.dSYM; sourceTree = "<group>"; };
+		C2986B631DE6C6F800E08046 /* RxBlocking.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RxBlocking.framework.dSYM; sourceTree = "<group>"; };
+		C2986B641DE6C6F800E08046 /* RxCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RxCocoa.framework.dSYM; sourceTree = "<group>"; };
+		C2986B651DE6C6F800E08046 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RxSwift.framework.dSYM; sourceTree = "<group>"; };
+		C2986B661DE6C6F800E08046 /* RxTest.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RxTest.framework.dSYM; sourceTree = "<group>"; };
+		C2986B671DE6C6F800E08046 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = "<group>"; };
+		C2986B681DE6C6F800E08046 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		C2986B691DE6C6F800E08046 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxBlocking.framework; sourceTree = "<group>"; };
+		C2986B6A1DE6C6F800E08046 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = "<group>"; };
+		C2986B6B1DE6C6F800E08046 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxSwift.framework; sourceTree = "<group>"; };
+		C2986B6C1DE6C6F800E08046 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RxTest.framework; sourceTree = "<group>"; };
+		C2986B6D1DE6C6F800E08046 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Realm.framework.dSYM; sourceTree = "<group>"; };
+		C2986B6E1DE6C6F800E08046 /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = RealmSwift.framework.dSYM; sourceTree = "<group>"; };
+		C2986B6F1DE6C6F800E08046 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		C2986B701DE6C6F800E08046 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		C2986B711DE6C6F800E08046 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,20 +244,13 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		12D78FBF58CADDF6D457084F /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		B540DF321DE5EC08000E682E = {
 			isa = PBXGroup;
 			children = (
-				12D78FBF58CADDF6D457084F /* Data */,
 				B540DF3E1DE5EC94000E682E /* Products */,
 				12D78DD37567612C407BD5BB /* Platforms */,
 				12D7827D14EFC1DE64DC1ED4 /* UnitTests */,
+				C24F274BBB1BE4222E61B258 /* Models */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,8 +278,59 @@
 				12D780951C81C42E74817EEA /* Application */,
 				12D78D6BC348083A4EAA141E /* UI */,
 				12D7895E060838465E0BD559 /* Resources */,
+				C24F257DC1CE0D2C12C20586 /* Frameworks */,
+				C24F216BB0406FF3DF7C1821 /* Data */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		C24F216BB0406FF3DF7C1821 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C24F2F13D57F48BA4876C2AF /* Entities */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C24F257DC1CE0D2C12C20586 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2986B611DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM */,
+				C2986B621DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM */,
+				C2986B631DE6C6F800E08046 /* RxBlocking.framework.dSYM */,
+				C2986B641DE6C6F800E08046 /* RxCocoa.framework.dSYM */,
+				C2986B651DE6C6F800E08046 /* RxSwift.framework.dSYM */,
+				C2986B661DE6C6F800E08046 /* RxTest.framework.dSYM */,
+				C2986B6D1DE6C6F800E08046 /* Realm.framework.dSYM */,
+				C2986B6E1DE6C6F800E08046 /* RealmSwift.framework.dSYM */,
+				C2986B671DE6C6F800E08046 /* CocoaLumberjack.framework */,
+				C2986B681DE6C6F800E08046 /* CocoaLumberjackSwift.framework */,
+				C2986B691DE6C6F800E08046 /* RxBlocking.framework */,
+				C2986B6A1DE6C6F800E08046 /* RxCocoa.framework */,
+				C2986B6B1DE6C6F800E08046 /* RxSwift.framework */,
+				C2986B6C1DE6C6F800E08046 /* RxTest.framework */,
+				C2986B6F1DE6C6F800E08046 /* Realm.framework */,
+				C2986B701DE6C6F800E08046 /* RealmSwift.framework */,
+				C2986B711DE6C6F800E08046 /* AudioKit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		C24F274BBB1BE4222E61B258 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C24F261D70FC81D14D734AF7 /* Playlist.swift */,
+				C24F22CDAD35F531F7AB4094 /* Song.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C24F2F13D57F48BA4876C2AF /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C24F24A2AEC8BA8642CEC89D /* RealmModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +343,7 @@
 				B540DF391DE5EC94000E682E /* Sources */,
 				B540DF3A1DE5EC94000E682E /* Frameworks */,
 				B540DF3B1DE5EC94000E682E /* Resources */,
+				C2986B9E1DE6C74300E08046 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -310,10 +417,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2986B7F1DE6C6F800E08046 /* RealmSwift.framework.dSYM in Resources */,
+				C2986B771DE6C6F800E08046 /* RxTest.framework.dSYM in Resources */,
+				C2986B721DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM in Resources */,
+				C2986B731DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM in Resources */,
 				B540DF761DE5EF75000E682E /* Main.storyboard in Resources */,
+				C2986B7E1DE6C6F800E08046 /* Realm.framework.dSYM in Resources */,
+				C2986B741DE6C6F800E08046 /* RxBlocking.framework.dSYM in Resources */,
 				B540DF611DE5EE5C000E682E /* Info.plist in Resources */,
 				B540DF751DE5EF75000E682E /* LaunchScreen.storyboard in Resources */,
 				B540DF7C1DE5F1A7000E682E /* Assets.xcassets in Resources */,
+				C2986B751DE6C6F800E08046 /* RxCocoa.framework.dSYM in Resources */,
+				C2986B761DE6C6F800E08046 /* RxSwift.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +450,9 @@
 				12D78E3323F84974513E0F8F /* BaseViewController.swift in Sources */,
 				12D78F2EF99727C36D062015 /* BootstrapViewController.swift in Sources */,
 				12D789C6F0BC1F5F9E6B14B7 /* Navigator.swift in Sources */,
+				C24F27ED268478C4DA2D2BB4 /* Playlist.swift in Sources */,
+				C24F27EA11149C628E87CA7E /* Song.swift in Sources */,
+				C24F2E281749BCBCE7F448E1 /* RealmModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +517,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Platforms/iOS/Frameworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -454,6 +576,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Platforms/iOS/Frameworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
