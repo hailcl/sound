@@ -1,4 +1,1 @@
-github "audiokit/AudioKit" "v3.5"
-github "CocoaLumberjack/CocoaLumberjack" "3.0.0"
-github "ReactiveX/RxSwift" "3.0.1"
-github "realm/realm-cocoa" "v2.1.0"
+github "hyperoslo/Whisper" "4.0.0"

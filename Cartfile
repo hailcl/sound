@@ -2,3 +2,7 @@
 #github "ReactiveX/RxSwift" ~> 3.0
 #github "CocoaLumberjack/CocoaLumberjack"
 #github "audiokit/AudioKit"
+#github "sascha/DrawerController"
+#github "teodorpatras/SideMenuController"
+#github "thii/FontAwesome.swift"
+#github "hyperoslo/Whisper"
