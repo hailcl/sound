@@ -3,6 +3,7 @@
 #github "CocoaLumberjack/CocoaLumberjack"
 #github "audiokit/AudioKit"
 #github "sascha/DrawerController"
-#github "teodorpatras/SideMenuController"
+github "dekatotoro/SlideMenuControllerSwift"
 #github "thii/FontAwesome.swift"
 #github "hyperoslo/Whisper"
+#github "nvzqz/FileKit"

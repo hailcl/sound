@@ -5,5 +5,26 @@
 import Foundation
 
 class HomeViewController: BaseViewController {
+    var model: HomeViewModel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        model = HomeViewModel()
+
+        bindData()
+
+        bindEvents()
+
+        model.loadPlaylist()
+    }
+
+    func bindData() {
+
+    }
+
+    func bindEvents() {
+
+    }
 
 }

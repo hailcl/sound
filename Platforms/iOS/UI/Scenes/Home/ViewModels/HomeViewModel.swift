@@ -3,6 +3,11 @@
 //
 
 import Foundation
+import RxSwift
 
 class HomeViewModel: BaseViewModel {
+
+    func loadPlaylist() {
+
+    }
 }
