@@ -15,7 +15,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
 
         dataSource = HomeViewDataSource()
-        model = HomeViewModel(playlistService: Dependences.playlistService)
+        model = HomeViewModel(playlistService: Dependences.playlistService, soundService: Dependences.soundService)
 
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -41,7 +41,10 @@ class HomeViewController: BaseViewController {
     }
 
     func bindEvents() {
-
+        disposeBag.insert(
+                dataSource.onSelectSong.subscribe(onNext: { [unowned self] songViewModel in
+                    self.model.play(song: songViewModel)
+                }, onError: nil, onCompleted: nil, onDisposed: nil))
     }
 
 }

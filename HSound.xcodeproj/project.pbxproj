@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12D785D4BA6AD48259C2C27E /* SoundServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */; };
 		12D786436CD010EDAE3678CC /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D789B04ADF5F43BEBE2696 /* PlaylistsViewController.swift */; };
 		12D7898DCD6E244A7CECABE5 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D784F80430410F3D8C6B21 /* PlaylistViewModel.swift */; };
+		12D789BD5DC4C4FF75446A9E /* SoundParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D785D68357B5E53A54ACB3 /* SoundParams.swift */; };
 		12D789C6F0BC1F5F9E6B14B7 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D78C68B068B077AB44630A /* Navigator.swift */; };
 		12D78A5C644BA3152750385E /* PlaylistsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7825A8F02BBF93F779B89 /* PlaylistsViewModel.swift */; };
+		12D78ACE2EB479CDEB204E2C /* SoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D787EF257453A9D6257286 /* SoundService.swift */; };
 		12D78DEB565DD4C03DEE015F /* PlaylistViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D78AA61000C24059C223B0 /* PlaylistViewCell.swift */; };
 		12D78E3323F84974513E0F8F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D78452B6439AF26C4B8714 /* BaseViewController.swift */; };
 		12D78EF86B561BFD794519DB /* PlaylistsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D782E9B6EAB8DEBA00D7A7 /* PlaylistsDataSource.swift */; };
@@ -129,10 +132,13 @@
 
 /* Begin PBXFileReference section */
 		12D7825A8F02BBF93F779B89 /* PlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsViewModel.swift; sourceTree = "<group>"; };
+		12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundServiceImpl.swift; sourceTree = "<group>"; };
 		12D782E9B6EAB8DEBA00D7A7 /* PlaylistsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsDataSource.swift; sourceTree = "<group>"; };
 		12D78452B6439AF26C4B8714 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		12D784F80430410F3D8C6B21 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
+		12D785D68357B5E53A54ACB3 /* SoundParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundParams.swift; sourceTree = "<group>"; };
 		12D7860D5204052C692B1BA9 /* BootstrapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootstrapViewController.swift; sourceTree = "<group>"; };
+		12D787EF257453A9D6257286 /* SoundService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
 		12D789B04ADF5F43BEBE2696 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
 		12D78AA61000C24059C223B0 /* PlaylistViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewCell.swift; sourceTree = "<group>"; };
 		12D78C68B068B077AB44630A /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
@@ -251,6 +257,14 @@
 				B540DF5E1DE5EE5C000E682E /* iOSTests */,
 			);
 			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		12D782DAA0B77C689020FE5B /* Params */ = {
+			isa = PBXGroup;
+			children = (
+				12D785D68357B5E53A54ACB3 /* SoundParams.swift */,
+			);
+			path = Params;
 			sourceTree = "<group>";
 		};
 		12D7845C0C650A711D15C787 /* Scenes */ = {
@@ -458,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				C24F27A684185B348B00682B /* PlaylistService.swift */,
+				12D787EF257453A9D6257286 /* SoundService.swift */,
 			);
 			path = Interfaces;
 			sourceTree = "<group>";
@@ -606,6 +621,7 @@
 			isa = PBXGroup;
 			children = (
 				C24F2F1F1808C726E9625CA3 /* PlaylistServiceImpl.swift */,
+				12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -630,6 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				C24F2E4DA405819E9625CA8B /* Impl */,
+				12D782DAA0B77C689020FE5B /* Params */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -771,6 +788,9 @@
 				C24F20047AED2D0DC47DEADE /* PlaylistRepositoryImpl.swift in Sources */,
 				C24F2AA90564BF3BC802F888 /* SessionRepository.swift in Sources */,
 				C24F24152F019FCE52861691 /* SessionRepositoryImpl.swift in Sources */,
+				12D78ACE2EB479CDEB204E2C /* SoundService.swift in Sources */,
+				12D785D4BA6AD48259C2C27E /* SoundServiceImpl.swift in Sources */,
+				12D789BD5DC4C4FF75446A9E /* SoundParams.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

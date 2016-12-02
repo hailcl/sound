@@ -10,6 +10,7 @@ class Dependences {
 
     static var playlistService: PlaylistService = instance.internalPlaylistService
     static var storyboards: Storyboards = instance.internalStoryboards
+    static var soundService: SoundService = instance.internalSoundService
 
     private lazy var internalPlaylistService: PlaylistService = {
         return PlaylistServiceImpl(playlistRepository: self.internalPlaylistRepository,
@@ -32,5 +33,9 @@ class Dependences {
 
     private lazy var internalSessionRepository: SessionRepository = {
         return SessionRepositoryImpl(playlistRepository: self.internalPlaylistRepository)
+    }()
+
+    private lazy var internalSoundService: SoundService = {
+        return SoundServiceImpl()
     }()
 }

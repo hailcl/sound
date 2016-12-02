@@ -11,6 +11,7 @@ class FileRepositoryImpl: FileRepository {
 
     init (home: Path) {
         self.home = home
+        debugPrint(home)
     }
 
     func getListFile() -> [Path] {

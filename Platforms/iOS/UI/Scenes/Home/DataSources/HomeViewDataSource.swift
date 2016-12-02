@@ -4,9 +4,15 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class HomeViewDataSource: NSObject {
     var songs: [SongViewModel] = []
+    var onSelectSong: Observable<SongViewModel> {
+        return onSelectSongSubject.asObservable()
+    }
+
+    let onSelectSongSubject = PublishSubject<SongViewModel>()
 
     func loadSongs(songs: [SongViewModel]) {
         self.songs = songs
@@ -28,5 +34,8 @@ extension HomeViewDataSource: UITableViewDataSource {
 }
 
 extension HomeViewDataSource: UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        onSelectSongSubject.onNext(songs[indexPath.row])
+    }
 }

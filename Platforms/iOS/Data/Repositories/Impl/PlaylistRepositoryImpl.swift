@@ -3,6 +3,7 @@
 //
 
 import Foundation
+import FileKit
 
 class PlaylistRepositoryImpl: PlaylistRepository {
     var fileRepository: FileRepository
@@ -12,7 +13,10 @@ class PlaylistRepositoryImpl: PlaylistRepository {
     }
 
     func defaultPlaylist() -> Playlist {
-        return Playlist(id: "default", title: "Default", songs: fileRepository.getListFile().map{ Path -> Song in return Song() })
+        return Playlist(id: "default", title: "Default",
+                songs: fileRepository.getListFile().map{ (path:Path)-> Song in
+                    return Song(id: path.fileName, title: path.fileName, path: path.standardRawValue)
+                })
     }
 
 }
