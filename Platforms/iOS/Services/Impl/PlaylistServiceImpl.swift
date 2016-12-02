@@ -6,7 +6,7 @@ import Foundation
 import RxSwift
 
 class PlaylistServiceImpl: PlaylistService {
-    let onCurrentPlaylistSubject = BehaviorSubject<Playlist>(value: { return Playlist() }())
+    let onCurrentPlaylistSubject = BehaviorSubject<Playlist>(value: { return Playlist(songs: []) }())
 
     var onCurrentPlaylist: Observable<Playlist> {
         return onCurrentPlaylistSubject.asObservable()

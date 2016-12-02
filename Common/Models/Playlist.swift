@@ -5,4 +5,9 @@
 import Foundation
 
 class Playlist {
+    var songs:[Song]
+
+    init(songs:[Song]) {
+        self.songs = songs
+    }
 }

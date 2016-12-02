@@ -50,9 +50,8 @@
 		C2986B991DE6C74300E08046 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B6F1DE6C6F800E08046 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2986B9B1DE6C74300E08046 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B701DE6C6F800E08046 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2986B9D1DE6C74300E08046 /* AudioKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2986B711DE6C6F800E08046 /* AudioKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C2C136A21DE848A70003BE96 /* SideMenuController.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2C1369C1DE848A70003BE96 /* SideMenuController.framework.dSYM */; };
-		C2C136A41DE848A70003BE96 /* Whisper.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2C1369E1DE848A70003BE96 /* Whisper.framework.dSYM */; };
-		C2C136A61DE848A70003BE96 /* FontAwesome.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = C2C136A01DE848A70003BE96 /* FontAwesome.framework.dSYM */; };
+		C2BE82921DED7CE200BE7DB8 /* FileKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2BE828F1DED7CD000BE7DB8 /* FileKit.framework.dSYM */; };
+		C2BE82931DED7CFC00BE7DB8 /* FileKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2BE828E1DED7CD000BE7DB8 /* FileKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2C136A81DE848B40003BE96 /* SideMenuController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2C1369B1DE848A70003BE96 /* SideMenuController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2C136AA1DE848B70003BE96 /* Whisper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2C1369D1DE848A70003BE96 /* Whisper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2C136AC1DE848B90003BE96 /* FontAwesome.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2C1369F1DE848A70003BE96 /* FontAwesome.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -78,6 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 16;
 			files = (
+				C2BE82921DED7CE200BE7DB8 /* FileKit.framework.dSYM in CopyFiles */,
 				C298660B1DE7F37900D06EFD /* CocoaLumberjack.framework.dSYM in CopyFiles */,
 				C2C136AD1DE848DA0003BE96 /* Whisper.framework.dSYM in CopyFiles */,
 				C2C136AF1DE848DF0003BE96 /* FontAwesome.framework.dSYM in CopyFiles */,
@@ -102,6 +102,7 @@
 				C2986B951DE6C74300E08046 /* RxSwift.framework in Embed Frameworks */,
 				C2C136A81DE848B40003BE96 /* SideMenuController.framework in Embed Frameworks */,
 				C2986B931DE6C74300E08046 /* RxCocoa.framework in Embed Frameworks */,
+				C2BE82931DED7CFC00BE7DB8 /* FileKit.framework in Embed Frameworks */,
 				C2986B971DE6C74300E08046 /* RxTest.framework in Embed Frameworks */,
 				C2C136AC1DE848B90003BE96 /* FontAwesome.framework in Embed Frameworks */,
 				C2986B8F1DE6C74300E08046 /* CocoaLumberjackSwift.framework in Embed Frameworks */,
@@ -165,6 +166,8 @@
 		C2986B6F1DE6C6F800E08046 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		C2986B701DE6C6F800E08046 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		C2986B711DE6C6F800E08046 /* AudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AudioKit.framework; sourceTree = "<group>"; };
+		C2BE828E1DED7CD000BE7DB8 /* FileKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FileKit.framework; sourceTree = "<group>"; };
+		C2BE828F1DED7CD000BE7DB8 /* FileKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = FileKit.framework.dSYM; sourceTree = "<group>"; };
 		C2C1369B1DE848A70003BE96 /* SideMenuController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SideMenuController.framework; sourceTree = "<group>"; };
 		C2C1369C1DE848A70003BE96 /* SideMenuController.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SideMenuController.framework.dSYM; sourceTree = "<group>"; };
 		C2C1369D1DE848A70003BE96 /* Whisper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Whisper.framework; sourceTree = "<group>"; };
@@ -440,6 +443,8 @@
 				C2986B661DE6C6F800E08046 /* RxTest.framework.dSYM */,
 				C2986B6D1DE6C6F800E08046 /* Realm.framework.dSYM */,
 				C2986B6E1DE6C6F800E08046 /* RealmSwift.framework.dSYM */,
+				C2BE828F1DED7CD000BE7DB8 /* FileKit.framework.dSYM */,
+				C2BE828E1DED7CD000BE7DB8 /* FileKit.framework */,
 				C2C1369B1DE848A70003BE96 /* SideMenuController.framework */,
 				C2C1369D1DE848A70003BE96 /* Whisper.framework */,
 				C2C1369F1DE848A70003BE96 /* FontAwesome.framework */,
@@ -625,13 +630,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C2C136A61DE848A70003BE96 /* FontAwesome.framework.dSYM in Resources */,
 				B540DF761DE5EF75000E682E /* Main.storyboard in Resources */,
-				C2C136A21DE848A70003BE96 /* SideMenuController.framework.dSYM in Resources */,
 				B540DF611DE5EE5C000E682E /* Info.plist in Resources */,
 				B540DF751DE5EF75000E682E /* LaunchScreen.storyboard in Resources */,
 				B540DF7C1DE5F1A7000E682E /* Assets.xcassets in Resources */,
-				C2C136A41DE848A70003BE96 /* Whisper.framework.dSYM in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
