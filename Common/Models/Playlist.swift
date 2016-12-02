@@ -5,9 +5,13 @@
 import Foundation
 
 class Playlist {
+    var id: String
+    var title: String
     var songs:[Song]
 
-    init(songs:[Song]) {
+    init(id: String, title: String,songs:[Song]) {
+        self.id = id
+        self.title = title
         self.songs = songs
     }
 }

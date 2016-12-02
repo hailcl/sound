@@ -6,10 +6,14 @@ import Foundation
 import RxSwift
 
 class PlaylistServiceImpl: PlaylistService {
-    let onCurrentPlaylistSubject = BehaviorSubject<Playlist>(value: { return Playlist(songs: []) }())
+    var playlistRepository: PlaylistRepository
+    var sessionRepository: SessionRepository
 
-    var onCurrentPlaylist: Observable<Playlist> {
-        return onCurrentPlaylistSubject.asObservable()
+    var onCurrentPlaylist: Observable<Playlist>
+
+    init(playlistRepository: PlaylistRepository, sessionRepository: SessionRepository) {
+        onCurrentPlaylist = sessionRepository.onCurrentPlaylist
+        self.playlistRepository = playlistRepository
+        self.sessionRepository = sessionRepository
     }
-
 }
