@@ -15,6 +15,7 @@ class SessionRepositoryImpl: SessionRepository {
 
     init (playlistRepository: PlaylistRepository) {
         self.playlistRepository = playlistRepository
+        onCurrentPlaylistSubject.onNext(playlistRepository.defaultPlaylist())
     }
 
     func store(playlist: Playlist) {

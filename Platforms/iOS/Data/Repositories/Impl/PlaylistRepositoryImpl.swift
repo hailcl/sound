@@ -10,4 +10,9 @@ class PlaylistRepositoryImpl: PlaylistRepository {
     init(fileRepository: FileRepository) {
         self.fileRepository = fileRepository
     }
+
+    func defaultPlaylist() -> Playlist {
+        return Playlist(id: "default", title: "Default", songs: fileRepository.getListFile().map{ Path -> Song in return Song() })
+    }
+
 }

@@ -13,8 +13,7 @@ class FileRepositoryImpl: FileRepository {
         self.home = home
     }
 
-    func getListFile(folder: String) -> Observable<[Song]> {
-        return Observable.just([])
+    func getListFile() -> [Path] {
+        return self.home.children()
     }
-
 }

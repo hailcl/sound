@@ -4,7 +4,8 @@
 
 import Foundation
 import RxSwift
+import FileKit
 
 protocol FileRepository {
-    func getListFile(folder: String) -> Observable<[Song]>
+    func getListFile() -> [Path]
 }

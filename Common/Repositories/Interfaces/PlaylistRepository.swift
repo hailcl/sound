@@ -5,5 +5,5 @@
 import Foundation
 
 protocol PlaylistRepository {
-
+    func defaultPlaylist() -> Playlist
 }
