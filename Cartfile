@@ -7,3 +7,6 @@
 #github "thii/FontAwesome.swift"
 #github "hyperoslo/Whisper"
 #github "nvzqz/FileKit" "feature-swift3"
+#github "sascha/DrawerController"
+#github "MortimerGoro/MGSwipeTableCell"
+github "yeahdongcn/UIColor-Hex-Swift" >= 3.0.2
