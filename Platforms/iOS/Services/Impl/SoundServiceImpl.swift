@@ -7,16 +7,25 @@ import AudioKit
 import AVFoundation
 
 class SoundServiceImpl: SoundService {
-    var player: AVAudioPlayer?
+    var player: AKAudioPlayer?
 
     func playSound(sound: SoundParams) {
-        debugPrint(sound.filePath)
         do {
-            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound.filePath))
-            guard let player = player else { return }
+            if let player = player {
+                if player.isPlaying {
+                    player.stop()
+                    try player.replace(file: AKAudioFile(forReading: URL(fileURLWithPath: sound.filePath)))
+                    player.play()
+                }
+            }
+            else {
+                player = try AKAudioPlayer(file: AKAudioFile(forReading: URL(fileURLWithPath: sound.filePath)))
+                AudioKit.output = player
+                AudioKit.start()
 
-            player.prepareToPlay()
-            player.play()
+                player!.play()
+            }
+
         } catch let error {
             print(error.localizedDescription)
         }
