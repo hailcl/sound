@@ -7,4 +7,5 @@ import RxSwift
 
 protocol PlaylistService {
     var onCurrentPlaylist: Observable<Playlist> { get }
+    func getPlaylist(id: String) -> Observable<Playlist>
 }

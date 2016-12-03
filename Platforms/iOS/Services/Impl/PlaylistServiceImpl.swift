@@ -16,4 +16,9 @@ class PlaylistServiceImpl: PlaylistService {
         self.playlistRepository = playlistRepository
         self.sessionRepository = sessionRepository
     }
+
+    func getPlaylist(id: String) -> Observable<Playlist> {
+        return onCurrentPlaylist
+    }
+
 }

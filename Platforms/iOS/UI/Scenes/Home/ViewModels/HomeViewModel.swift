@@ -9,6 +9,8 @@ import CocoaLumberjackSwift
 class HomeViewModel: BaseViewModel {
     var playlistService: PlaylistService
     var soundService: SoundService
+    var paused = Property<Bool>(true)
+    var currentSong = Property<SongViewModel?>(nil)
     var onPlaylist: Observable<PlaylistViewModel> {
         return onPlaylistSubject.asObservable().shareReplay(1)
     }
@@ -20,6 +22,16 @@ class HomeViewModel: BaseViewModel {
     init (playlistService: PlaylistService, soundService: SoundService) {
         self.playlistService = playlistService
         self.soundService = soundService
+        super.init()
+        _ = soundService.onPlaying.subscribe(onNext: { [unowned self] playing in
+            if self.paused.value == false && playing == false {
+                self.next()
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+    }
+
+    func pause() {
+        soundService.pause()
     }
 
     func loadPlaylist() {
@@ -41,6 +53,33 @@ class HomeViewModel: BaseViewModel {
     }
 
     func play(song: SongViewModel) {
+        currentSong.set(value: song)
+        paused.value = false
         soundService.playSound(sound: SoundParams(filePath: song.path))
+    }
+
+    func next() {
+        guard let song = currentSong.value else {
+            return
+        }
+        _ = playlistService.onCurrentPlaylist.take(1).subscribe(onNext: { [unowned self] playlist in
+            let playlistViewModel = PlaylistViewModel(id: playlist.id, title: playlist.title,
+                    songs: playlist.songs.map{ (song: Song) -> SongViewModel in
+                        return SongViewModel(id: song.id, title: song.title, path: song.path)
+                    })
+            let songs:[SongViewModel] = playlistViewModel.songs
+            let index = songs.index{ $0.id == song.id}
+            var songViewModel: SongViewModel?
+
+            if index == (songs.count - 1) {
+                songViewModel = songs[0]
+            }
+            else {
+                songViewModel = songs[index! + 1]
+            }
+
+            self.play(song: songViewModel!)
+
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
     }
 }

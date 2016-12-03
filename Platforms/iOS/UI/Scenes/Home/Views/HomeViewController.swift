@@ -20,6 +20,8 @@ class HomeViewController: BaseViewController {
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(pause))
+
         bindData()
 
         bindEvents()
@@ -47,4 +49,7 @@ class HomeViewController: BaseViewController {
                 }, onError: nil, onCompleted: nil, onDisposed: nil))
     }
 
+    func pause() {
+        model.pause()
+    }
 }
