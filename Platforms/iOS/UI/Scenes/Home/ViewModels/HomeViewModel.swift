@@ -31,7 +31,13 @@ class HomeViewModel: BaseViewModel {
     }
 
     func pause() {
+        paused.set(value: true)
         soundService.pause()
+    }
+
+    func resume() {
+        paused.set(value: false)
+        soundService.resume()
     }
 
     func loadPlaylist() {

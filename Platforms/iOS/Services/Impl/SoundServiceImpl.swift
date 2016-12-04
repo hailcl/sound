@@ -5,6 +5,8 @@
 import Foundation
 import AudioKit
 import RxSwift
+import AVFoundation
+import MediaPlayer
 
 class SoundServiceImpl: SoundService {
     var player: AKAudioPlayer?
@@ -12,20 +14,31 @@ class SoundServiceImpl: SoundService {
         return onPlayingSubject.asObservable()
     }
     let onPlayingSubject = BehaviorSubject<Bool>(value: false)
-
+    
     func playSound(sound: SoundParams) {
         do {
             if let player = player {
-                player.stop()
                 try player.replace(file: AKAudioFile(forReading: URL(fileURLWithPath: sound.filePath)))
-                player.completionHandler = { [unowned self] _ in self.onPlayingSubject.onNext(false) }
-                player.play()
+                player.completionHandler = { [unowned self] _ in
+                    self.onPlayingSubject.onNext(false)
+                }
+                AKSettings.playbackWhileMuted = true
+                AudioKit.start()
+                if player.isPlaying == false {
+                    player.play()
+                }
                 onPlayingSubject.onNext(true)
             }
             else {
                 player = try AKAudioPlayer(file: AKAudioFile(forReading: URL(fileURLWithPath: sound.filePath)))
-                player!.completionHandler = { [unowned self] _ in self.onPlayingSubject.onNext(false) }
+                player!.completionHandler = { [unowned self] _ in
+                    self.onPlayingSubject.onNext(false)
+                }
+                AKSettings.playbackWhileMuted = true
                 AudioKit.output = player
+                AKSettings.disableAVAudioSessionCategoryManagement = false
+                try AKSettings.setSession(category: AKSettings.SessionCategory.playback)
+                
                 AudioKit.start()
                 player!.play()
                 onPlayingSubject.onNext(true)
@@ -39,8 +52,20 @@ class SoundServiceImpl: SoundService {
 
     func pause() {
         if let player = player {
-            player.stop()
+            player.pause()
         }
     }
+
+    func resume() {
+        if let player = player {
+            do {
+                try player.reloadFile()
+                player.start()
+            } catch let error {
+                debugPrint(error)
+            }
+        }
+    }
+
 
 }

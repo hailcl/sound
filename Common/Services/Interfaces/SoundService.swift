@@ -9,4 +9,5 @@ protocol SoundService {
     var onPlaying: Observable<Bool> { get }
     func playSound(sound: SoundParams)
     func pause()
+    func resume()
 }

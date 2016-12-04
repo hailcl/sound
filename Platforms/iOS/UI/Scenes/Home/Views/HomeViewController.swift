@@ -51,5 +51,11 @@ class HomeViewController: BaseViewController {
 
     func pause() {
         model.pause()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(resume))
+    }
+
+    func resume() {
+        model.resume()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(pause))
     }
 }
