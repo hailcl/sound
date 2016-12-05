@@ -26,9 +26,9 @@ extension FontConvertible where Self: RawRepresentable, Self.RawValue == String 
 }
 
 extension Font {
-    convenience init!<FontType: FontConvertible
-                     where FontType: RawRepresentable, FontType.RawValue == String>
-            (font: FontType, size: CGFloat) {
+    convenience init!<FontType: FontConvertible>
+        (font: FontType, size: CGFloat)
+        where FontType: RawRepresentable, FontType.RawValue == String {
         self.init(name: font.rawValue, size: size)
     }
 }

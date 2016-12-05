@@ -12,9 +12,9 @@
         <!--Bootstrap View Controller-->
         <scene sceneID="rvq-yX-k7m">
             <objects>
-                <navigationController storyboardIdentifier="BootstrapViewController" navigationBarHidden="YES" id="G4r-ex-Sx9" customClass="BootstrapViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BootstrapViewController" navigationBarHidden="YES" id="G4r-ex-Sx9" customClass="BootstrapViewController" customModule="Sound" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3rE-Gv-R7h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3rE-Gv-R7h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -29,7 +29,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Sound" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,11 +38,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hrq-XD-oFM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hrq-XD-oFM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.094117647060000004" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SongViewCell" id="mlS-Dq-fCQ" customClass="SongViewCell" customModule="iOS" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SongViewCell" id="mlS-Dq-fCQ" customClass="SongViewCell" customModule="Sound" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mlS-Dq-fCQ" id="eln-gW-DVp">
@@ -55,7 +55,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="cTT-G9-pTt"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -65,6 +65,7 @@
                                                 <constraint firstItem="n0p-4C-MJg" firstAttribute="centerY" secondItem="eln-gW-DVp" secondAttribute="centerY" id="dBx-UQ-snG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.094117647060000004" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="n0p-4C-MJg" id="uLV-NS-E7c"/>
                                         </connections>
@@ -72,7 +73,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.094117647058823528" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Hrq-XD-oFM" secondAttribute="trailing" id="Ayg-j0-v1F"/>
                             <constraint firstItem="Hrq-XD-oFM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="QFW-Lf-GPS"/>
@@ -92,7 +93,7 @@
         <!--Playlists View Controller-->
         <scene sceneID="XWx-Ct-Rme">
             <objects>
-                <viewController storyboardIdentifier="PlaylistsViewController" id="snX-Uy-tUM" customClass="PlaylistsViewController" customModule="iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlaylistsViewController" id="snX-Uy-tUM" customClass="PlaylistsViewController" customModule="Sound" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YlW-e3-KTT"/>
                         <viewControllerLayoutGuide type="bottom" id="2RZ-jN-0dZ"/>

@@ -14,20 +14,28 @@ class BootstrapViewController: UINavigationController {
     }
 
     private func customeAppearance() {
-        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName :
-                                                            UIFont(name: Constants.Fonts.TitleFontName.rawValue, size: 24)!,
-                                                            NSForegroundColorAttributeName :
-                                                            Constants.Colors.SecondaryColor]
-        UINavigationBar.appearance().tintColor = Constants.Colors.MainBackgroundColor
+        let attributes = [NSFontAttributeName :
+            UIFont(name: Constants.Fonts.TitleFontName.rawValue, size: 24)!,
+                          NSForegroundColorAttributeName :
+                            Constants.Colors.SecondaryColor]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        UINavigationBar.appearance().tintColor = Constants.Colors.SecondaryColor
         UINavigationBar.appearance().barTintColor = Constants.Colors.MainBackgroundColor
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().backgroundColor = Constants.Colors.MainBackgroundColor
         UINavigationBar.appearance().shadowImage = UIImage()
 
-        UINavigationBar.appearance().backIndicatorImage = UIImage(asset: Asset.Icon_Nav_Back)
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(asset: Asset.Icon_Nav_Back)
+        let image = UIImage(asset: Asset.Icon_Nav_Back)
+        UINavigationBar.appearance().backIndicatorImage = image
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = image
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60),
                                                                           for:UIBarMetrics.default)
     }
 
+}
+
+extension UINavigationController {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
 }
