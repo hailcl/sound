@@ -11,6 +11,7 @@ class HomeViewModel: BaseViewModel {
     var soundService: SoundService
     var paused = Property<Bool>(true)
     var currentSong = Property<SongViewModel?>(nil)
+    var onPlaying: Observable<Bool>
     var onPlaylist: Observable<PlaylistViewModel> {
         return onPlaylistSubject.asObservable().shareReplay(1)
     }
@@ -22,6 +23,7 @@ class HomeViewModel: BaseViewModel {
     init (playlistService: PlaylistService, soundService: SoundService) {
         self.playlistService = playlistService
         self.soundService = soundService
+        self.onPlaying = soundService.onPlaying
         super.init()
         _ = soundService.onPlaying.subscribe(onNext: { [unowned self] playing in
             if self.paused.value == false && playing == false {

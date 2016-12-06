@@ -20,8 +20,6 @@ class HomeViewController: BaseViewController {
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(pause))
-
         bindData()
 
         bindEvents()
@@ -47,15 +45,22 @@ class HomeViewController: BaseViewController {
                 dataSource.onSelectSong.subscribe(onNext: { [unowned self] songViewModel in
                     self.model.play(song: songViewModel)
                 }, onError: nil, onCompleted: nil, onDisposed: nil))
+        disposeBag.insert(
+                model.onPlaying.subscribe(onNext: { [unowned self] playing in
+                    if playing == true {
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(self.pause))
+                    } else {
+                        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(self.resume))
+                    }
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
+                )
     }
 
     func pause() {
         model.pause()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Resume", style: .plain, target: self, action: #selector(resume))
     }
 
     func resume() {
         model.resume()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Pause", style: .plain, target: self, action: #selector(pause))
     }
 }

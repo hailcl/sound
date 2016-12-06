@@ -14,18 +14,61 @@ class SoundServiceImpl: SoundService {
         return onPlayingSubject.asObservable()
     }
     let onPlayingSubject = BehaviorSubject<Bool>(value: false)
+
+    init() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch  let exception {
+            debugPrint(exception)
+        }
+
+        let audioSession = AVAudioSession.sharedInstance()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleInterruption(notification:)),
+                name: NSNotification.Name.AVAudioSessionInterruption,
+                object: nil)
+
+        do {
+            try audioSession.setActive(true)
+        } catch _ {
+        }
+    }
+
+    @objc func handleInterruption(notification: NSNotification){
+        let interruptionTypeAsObject =
+        notification.userInfo![AVAudioSessionInterruptionTypeKey] as! NSNumber
+
+        let interruptionType = AVAudioSessionInterruptionType(rawValue:
+        interruptionTypeAsObject.uintValue)
+
+        if let type = interruptionType{
+            switch type {
+                case .ended: break
+                case .began:
+                    if let player = player {
+                        player.pause()
+                    }
+                break
+            }
+        }
+
+        onPlayingSubject.onNext(false)
+
+    }
     
     func playSound(sound: SoundParams) {
         do {
             if let player = player {
+                player.stop()
                 try player.replace(file: AKAudioFile(forReading: URL(fileURLWithPath: sound.filePath)))
                 player.completionHandler = { [unowned self] _ in
                     self.onPlayingSubject.onNext(false)
                 }
                 AKSettings.playbackWhileMuted = true
-                AudioKit.start()
+                AudioKit.output = player
                 if player.isPlaying == false {
-                    player.play()
+                    player.start()
                 }
                 onPlayingSubject.onNext(true)
             }
@@ -35,10 +78,7 @@ class SoundServiceImpl: SoundService {
                     self.onPlayingSubject.onNext(false)
                 }
                 AKSettings.playbackWhileMuted = true
-                AudioKit.output = player
-                AKSettings.disableAVAudioSessionCategoryManagement = false
-                try AKSettings.setSession(category: AKSettings.SessionCategory.playback)
-                
+                AudioKit.output = player                
                 AudioKit.start()
                 player!.play()
                 onPlayingSubject.onNext(true)
@@ -53,6 +93,7 @@ class SoundServiceImpl: SoundService {
     func pause() {
         if let player = player {
             player.pause()
+            onPlayingSubject.onNext(false)
         }
     }
 
@@ -61,6 +102,7 @@ class SoundServiceImpl: SoundService {
             do {
                 try player.reloadFile()
                 player.start()
+                onPlayingSubject.onNext(true)
             } catch let error {
                 debugPrint(error)
             }
