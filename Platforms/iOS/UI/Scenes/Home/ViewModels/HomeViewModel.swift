@@ -5,9 +5,11 @@
 import Foundation
 import RxSwift
 import CocoaLumberjackSwift
+import MediaPlayer
 
 class HomeViewModel: BaseViewModel {
     var playlistService: PlaylistService
+    let commandCenter: MPRemoteCommandCenter = MPRemoteCommandCenter.shared()
     var soundService: SoundService
     var paused = Property<Bool>(true)
     var currentSong = Property<SongViewModel?>(nil)
@@ -30,6 +32,30 @@ class HomeViewModel: BaseViewModel {
                 self.next()
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil)
+
+        self.commandCenter.playCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let sself = self else { return .commandFailed }
+            sself.resume()
+            return .success
+        }
+
+        self.commandCenter.pauseCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let sself = self else { return .commandFailed }
+            sself.pause()
+            return .success
+        }
+
+        self.commandCenter.nextTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let sself = self else { return .commandFailed }
+            sself.next()
+            return .success
+        }
+
+        self.commandCenter.previousTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let sself = self else { return .commandFailed }
+            sself.previous()
+            return .success
+        }
     }
 
     func pause() {
@@ -63,7 +89,7 @@ class HomeViewModel: BaseViewModel {
     func play(song: SongViewModel) {
         currentSong.set(value: song)
         paused.value = false
-        soundService.playSound(sound: SoundParams(filePath: song.path))
+        soundService.playSound(sound: SoundParams(filePath: song.path, title: song.title))
     }
 
     func next() {
@@ -84,6 +110,31 @@ class HomeViewModel: BaseViewModel {
             }
             else {
                 songViewModel = songs[index! + 1]
+            }
+
+            self.play(song: songViewModel!)
+
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+    }
+
+    func previous() {
+        guard let song = currentSong.value else {
+            return
+        }
+        _ = playlistService.onCurrentPlaylist.take(1).subscribe(onNext: { [unowned self] playlist in
+            let playlistViewModel = PlaylistViewModel(id: playlist.id, title: playlist.title,
+                    songs: playlist.songs.map{ (song: Song) -> SongViewModel in
+                        return SongViewModel(id: song.id, title: song.title, path: song.path)
+                    })
+            let songs:[SongViewModel] = playlistViewModel.songs
+            let index = songs.index{ $0.id == song.id}
+            var songViewModel: SongViewModel?
+
+            if index == 0 {
+                songViewModel = songs.last!
+            }
+            else {
+                songViewModel = songs[index! - 1]
             }
 
             self.play(song: songViewModel!)

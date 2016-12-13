@@ -36,6 +36,6 @@ class Dependences {
     }()
 
     private lazy var internalSoundService: SoundService = {
-        return SoundServiceImpl()
+        return SoundServiceAV()
     }()
 }

@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		12D78047F46B1C643DC678F6 /* ImageAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D786C83575ECB5F41507CF /* ImageAssets.swift */; };
 		12D782776EF31D5262768C38 /* Property.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F2FD718D45E6B1A6A0567 /* Property.swift */; };
-		12D785D4BA6AD48259C2C27E /* SoundServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */; };
+		12D7836A52282F563307AD65 /* SoundServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D7856428BC8653A3772799 /* SoundServiceImpl.swift */; };
 		12D786436CD010EDAE3678CC /* PlaylistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D789B04ADF5F43BEBE2696 /* PlaylistsViewController.swift */; };
+		12D7886F5B89FF95D450E2CF /* PlaylistServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D787B4CD614C9324D2CA07 /* PlaylistServiceImpl.swift */; };
 		12D788BB382AB2EF23441E19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D78CF997943ACD1488443A /* Constants.swift */; };
 		12D7898DCD6E244A7CECABE5 /* PlaylistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D784F80430410F3D8C6B21 /* PlaylistViewModel.swift */; };
 		12D789BD5DC4C4FF75446A9E /* SoundParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D785D68357B5E53A54ACB3 /* SoundParams.swift */; };
@@ -58,7 +59,6 @@
 		C24F2E281749BCBCE7F448E1 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F24A2AEC8BA8642CEC89D /* RealmModel.swift */; };
 		C24F2E2F8B53090456B2E993 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F2C3482A7872F8E0552B0 /* Configurations.swift */; };
 		C24F2FCE288C95C9A7A380FA /* Dependences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F217CBDF75DD3AF6CC0DC /* Dependences.swift */; };
-		C24F2FF06977EEAA5F0ABE5C /* PlaylistServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24F2F1F1808C726E9625CA3 /* PlaylistServiceImpl.swift */; };
 		C298660B1DE7F37900D06EFD /* CocoaLumberjack.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2986B611DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM */; };
 		C298660C1DE7F37900D06EFD /* CocoaLumberjackSwift.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2986B621DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM */; };
 		C298660D1DE7F37900D06EFD /* RxBlocking.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = C2986B631DE6C6F800E08046 /* RxBlocking.framework.dSYM */; };
@@ -159,13 +159,14 @@
 
 /* Begin PBXFileReference section */
 		12D7825A8F02BBF93F779B89 /* PlaylistsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsViewModel.swift; sourceTree = "<group>"; };
-		12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundServiceImpl.swift; sourceTree = "<group>"; };
 		12D782E9B6EAB8DEBA00D7A7 /* PlaylistsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsDataSource.swift; sourceTree = "<group>"; };
 		12D78452B6439AF26C4B8714 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		12D784F80430410F3D8C6B21 /* PlaylistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewModel.swift; sourceTree = "<group>"; };
+		12D7856428BC8653A3772799 /* SoundServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundServiceImpl.swift; sourceTree = "<group>"; };
 		12D785D68357B5E53A54ACB3 /* SoundParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundParams.swift; sourceTree = "<group>"; };
 		12D7860D5204052C692B1BA9 /* BootstrapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BootstrapViewController.swift; sourceTree = "<group>"; };
 		12D786C83575ECB5F41507CF /* ImageAssets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAssets.swift; sourceTree = "<group>"; };
+		12D787B4CD614C9324D2CA07 /* PlaylistServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistServiceImpl.swift; sourceTree = "<group>"; };
 		12D787EF257453A9D6257286 /* SoundService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundService.swift; sourceTree = "<group>"; };
 		12D789B04ADF5F43BEBE2696 /* PlaylistsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistsViewController.swift; sourceTree = "<group>"; };
 		12D78AA61000C24059C223B0 /* PlaylistViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistViewCell.swift; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		C24F2C121A4966E3F6AF03C2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C24F2C3482A7872F8E0552B0 /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		C24F2EE659578BEFBE2F66F0 /* Song.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		C24F2F1F1808C726E9625CA3 /* PlaylistServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaylistServiceImpl.swift; sourceTree = "<group>"; };
 		C24F2FD718D45E6B1A6A0567 /* Property.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Property.swift; sourceTree = "<group>"; };
 		C2986B611DE6C6F800E08046 /* CocoaLumberjack.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaLumberjack.framework.dSYM; sourceTree = "<group>"; };
 		C2986B621DE6C6F800E08046 /* CocoaLumberjackSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = CocoaLumberjackSwift.framework.dSYM; sourceTree = "<group>"; };
@@ -674,8 +674,8 @@
 		C24F2E4DA405819E9625CA8B /* Impl */ = {
 			isa = PBXGroup;
 			children = (
-				C24F2F1F1808C726E9625CA3 /* PlaylistServiceImpl.swift */,
-				12D782C1DBC59C8FF11676EC /* SoundServiceImpl.swift */,
+				12D7856428BC8653A3772799 /* SoundServiceImpl.swift */,
+				12D787B4CD614C9324D2CA07 /* PlaylistServiceImpl.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -867,7 +867,6 @@
 				C24F2B2A4819648F4AC45F65 /* HomeViewModel.swift in Sources */,
 				C24F2A6BDD2D1BED9D1FFE51 /* BaseViewModel.swift in Sources */,
 				C24F21ADFDB27515FB191887 /* PlaylistService.swift in Sources */,
-				C24F2FF06977EEAA5F0ABE5C /* PlaylistServiceImpl.swift in Sources */,
 				12D786436CD010EDAE3678CC /* PlaylistsViewController.swift in Sources */,
 				12D78A5C644BA3152750385E /* PlaylistsViewModel.swift in Sources */,
 				12D78EF86B561BFD794519DB /* PlaylistsDataSource.swift in Sources */,
@@ -883,12 +882,13 @@
 				C24F2AA90564BF3BC802F888 /* SessionRepository.swift in Sources */,
 				C24F24152F019FCE52861691 /* SessionRepositoryImpl.swift in Sources */,
 				12D78ACE2EB479CDEB204E2C /* SoundService.swift in Sources */,
-				12D785D4BA6AD48259C2C27E /* SoundServiceImpl.swift in Sources */,
 				12D789BD5DC4C4FF75446A9E /* SoundParams.swift in Sources */,
 				12D788BB382AB2EF23441E19 /* Constants.swift in Sources */,
 				12D78047F46B1C643DC678F6 /* ImageAssets.swift in Sources */,
 				12D782776EF31D5262768C38 /* Property.swift in Sources */,
 				C24F2689C3A84BB80CC13AFC /* Fonts.swift in Sources */,
+				12D7836A52282F563307AD65 /* SoundServiceImpl.swift in Sources */,
+				12D7886F5B89FF95D450E2CF /* PlaylistServiceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,6 +1013,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";

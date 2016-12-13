@@ -5,6 +5,8 @@
 import UIKit
 import RxSwift
 import CocoaLumberjackSwift
+import AVFoundation
+import MediaPlayer
 
 class HomeViewController: BaseViewController {
     var model: HomeViewModel!
@@ -25,6 +27,12 @@ class HomeViewController: BaseViewController {
         bindEvents()
 
         model.loadPlaylist()
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            UIApplication.shared.beginReceivingRemoteControlEvents()
+        } catch {
+        }
     }
 
     func bindData() {
