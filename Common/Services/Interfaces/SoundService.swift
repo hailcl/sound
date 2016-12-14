@@ -12,4 +12,5 @@ protocol SoundService {
     func playSound(sound: SoundParams)
     func pause()
     func resume()
+    func playAt(time: TimeInterval)
 }

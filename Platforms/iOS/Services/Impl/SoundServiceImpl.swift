@@ -85,4 +85,10 @@ class SoundServiceAV: NSObject, SoundService, AVAudioPlayerDelegate {
         onPlayingSubject.onNext(false)
     }
 
+    func playAt(time: TimeInterval) {
+        if let player = audioPlayer {
+            player.currentTime = time
+        }
+    }
+
 }

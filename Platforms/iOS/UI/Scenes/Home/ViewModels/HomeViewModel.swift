@@ -47,7 +47,6 @@ class HomeViewModel: BaseViewModel {
     }
 
     func handleRemoteCommand() {
-        
         _ = Observable.combineLatest(soundService.onDurration, currentSoundSubject.asObservable()) { (duration, sound) -> (TimeInterval, SoundParams) in
                     return (duration, sound)
                 }.subscribe(onNext: { [unowned self] (interval: TimeInterval, params: SoundParams) in
@@ -81,11 +80,12 @@ class HomeViewModel: BaseViewModel {
             return .success
         }
         
-//        commandCenter.changePlaybackPositionCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
-//            guard let weakSelf = self else { return .commandFailed }
-//            debugPrint(event)
-//            return .success
-//        }
+        commandCenter.changePlaybackPositionCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let weakSelf = self, let eventX = event as? MPChangePlaybackPositionCommandEvent
+                else { return .commandFailed }
+            weakSelf.soundService.playAt(time:eventX.positionTime)
+            return .success
+        }
     }
 
     func pause() {
