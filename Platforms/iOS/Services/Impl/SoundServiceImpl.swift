@@ -7,10 +7,9 @@ import RxSwift
 import AVFoundation
 import MediaPlayer
 
-class SoundServiceAV: NSObject, SoundService {
+class SoundServiceAV: NSObject, SoundService, AVAudioPlayerDelegate {
     let audioSession: AVAudioSession = AVAudioSession.sharedInstance()
-    let nowPlayingInfoCenter:MPNowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
-    var audioPlayer: AVPlayer?
+    var audioPlayer: AVAudioPlayer?
 
     override init() {
         super.init()
@@ -18,7 +17,7 @@ class SoundServiceAV: NSObject, SoundService {
             try! self.audioSession.setCategory(AVAudioSessionCategoryPlayback)
             try! self.audioSession.setActive(true)
         }
-        catch let exception {
+        catch let _ {
 
         }
     }
@@ -28,15 +27,26 @@ class SoundServiceAV: NSObject, SoundService {
     }
     let onPlayingSubject = BehaviorSubject<Bool>(value: false)
 
+    var onDurration: Observable<TimeInterval> {
+        return onDurrationSubject.asObservable()
+    }
+    let onDurrationSubject = BehaviorSubject<TimeInterval>(value: 20.0)
+
+    var onCurrentSound: Observable<SoundParams?> {
+        return onCurrentSoundSubject.asObservable()
+    }
+
+    let onCurrentSoundSubject = BehaviorSubject<SoundParams?>(value: nil)
+
     func playSound(sound: SoundParams) {
         do {
-            try audioPlayer = AVPlayer(url: URL(fileURLWithPath: sound.filePath))
+            try audioPlayer = AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound.filePath))
             audioPlayer?.play()
-            var nowPlayingInfo: [String: String] = [MPMediaItemPropertyTitle: sound.title]
-            self.nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
-
+            audioPlayer?.delegate = self
+            onDurrationSubject.onNext(audioPlayer != nil ? audioPlayer!.duration : 0.0)
+            onCurrentSoundSubject.onNext(sound)
             onPlayingSubject.onNext(true)
-        } catch let exception{
+        } catch let _{
 
         }
     }
@@ -55,5 +65,24 @@ class SoundServiceAV: NSObject, SoundService {
         }
     }
 
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        onCurrentSoundSubject.onNext(nil)
+        onPlayingSubject.onNext(false)
+    }
+
+    func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
+        onCurrentSoundSubject.onNext(nil)
+        onPlayingSubject.onNext(false)
+    }
+
+    func audioPlayerBeginInterruption(_ player: AVAudioPlayer) {
+        onCurrentSoundSubject.onNext(nil)
+        onPlayingSubject.onNext(false)
+    }
+
+    func audioPlayerEndInterruption(_ player: AVAudioPlayer, withOptions flags: Int) {
+        onCurrentSoundSubject.onNext(nil)
+        onPlayingSubject.onNext(false)
+    }
 
 }

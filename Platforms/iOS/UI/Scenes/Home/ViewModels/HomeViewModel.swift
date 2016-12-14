@@ -10,6 +10,7 @@ import MediaPlayer
 class HomeViewModel: BaseViewModel {
     var playlistService: PlaylistService
     let commandCenter: MPRemoteCommandCenter = MPRemoteCommandCenter.shared()
+    let nowPlayingInfoCenter:MPNowPlayingInfoCenter = MPNowPlayingInfoCenter.default()
     var soundService: SoundService
     var paused = Property<Bool>(true)
     var currentSong = Property<SongViewModel?>(nil)
@@ -21,11 +22,15 @@ class HomeViewModel: BaseViewModel {
 
     let onPlaylistSubject = PublishSubject<PlaylistViewModel>()
     let onSongsSubject = BehaviorSubject<[SongViewModel]>(value: [])
+    var currentSoundSubject = PublishSubject<SoundParams>()
 
     init (playlistService: PlaylistService, soundService: SoundService) {
         self.playlistService = playlistService
         self.soundService = soundService
         self.onPlaying = soundService.onPlaying
+        
+
+        
         super.init()
         _ = soundService.onPlaying.subscribe(onNext: { [unowned self] playing in
             if self.paused.value == false && playing == false {
@@ -33,29 +38,54 @@ class HomeViewModel: BaseViewModel {
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil)
 
-        self.commandCenter.playCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
-            guard let sself = self else { return .commandFailed }
-            sself.resume()
+        _ = soundService.onCurrentSound.subscribe(onNext: { [unowned self] sound in
+            guard let sound = sound else { return }
+            self.currentSoundSubject.onNext(sound)
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+
+        handleRemoteCommand()
+    }
+
+    func handleRemoteCommand() {
+        
+        _ = Observable.combineLatest(soundService.onDurration, currentSoundSubject.asObservable()) { (duration, sound) -> (TimeInterval, SoundParams) in
+                    return (duration, sound)
+                }.subscribe(onNext: { [unowned self] (interval: TimeInterval, params: SoundParams) in
+
+            let nowPlayingInfo:[String : Any] = [MPMediaItemPropertyTitle: params.title,
+                                                 MPMediaItemPropertyPlaybackDuration: interval]
+            self.nowPlayingInfoCenter.nowPlayingInfo = nowPlayingInfo
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+
+        commandCenter.playCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let weakSelf = self else { return .commandFailed }
+            weakSelf.resume()
             return .success
         }
 
-        self.commandCenter.pauseCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
-            guard let sself = self else { return .commandFailed }
-            sself.pause()
+        commandCenter.pauseCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let weakSelf = self else { return .commandFailed }
+            weakSelf.pause()
             return .success
         }
 
-        self.commandCenter.nextTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
-            guard let sself = self else { return .commandFailed }
-            sself.next()
+        commandCenter.nextTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let weakSelf = self else { return .commandFailed }
+            weakSelf.next()
             return .success
         }
 
-        self.commandCenter.previousTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
-            guard let sself = self else { return .commandFailed }
-            sself.previous()
+        commandCenter.previousTrackCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+            guard let weakSelf = self else { return .commandFailed }
+            weakSelf.previous()
             return .success
         }
+        
+//        commandCenter.changePlaybackPositionCommand.addTarget { [weak self] event -> MPRemoteCommandHandlerStatus in
+//            guard let weakSelf = self else { return .commandFailed }
+//            debugPrint(event)
+//            return .success
+//        }
     }
 
     func pause() {
