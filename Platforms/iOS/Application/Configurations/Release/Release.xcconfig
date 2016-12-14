@@ -8,3 +8,4 @@
 
 PRODUCT_BUNDLE_IDENTIFIER = com.nguyenthanhhai.hsound
 DEBUG_ACTIVITY_MODE = disable
+PRODUCT_NAME = Sound

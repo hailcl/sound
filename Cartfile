@@ -1,0 +1,12 @@
+#github "realm/realm-cocoa"
+#github "ReactiveX/RxSwift" ~> 3.0
+#github "CocoaLumberjack/CocoaLumberjack"
+#github "audiokit/AudioKit"
+#github "sascha/DrawerController"
+#github "dekatotoro/SlideMenuControllerSwift"
+#github "thii/FontAwesome.swift"
+#github "hyperoslo/Whisper"
+#github "nvzqz/FileKit" "feature-swift3"
+#github "sascha/DrawerController"
+#github "MortimerGoro/MGSwipeTableCell"
+github "yeahdongcn/UIColor-Hex-Swift" >= 3.0.2
